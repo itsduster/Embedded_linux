@@ -1,0 +1,32 @@
+Guide for Scripto
+
+The Script is a amenu driven scirpt that has majorly two options to choose from 
+Add Authentication to Exisiting File
+Add Authentication to New File Created
+
+auth_file.sh
+    ->Change the owner of the file 
+    This is done through chwon command that is bascially used to change the owner access from user to superuser
+    chown [options] new_owner[:new_group] file(s)
+    chown -c master file1.txt
+    -> Create an alias for accessing the file contents by the currently logged in user in the .bashrc file
+    running the file : source ~/.bashrc
+    'access_file' the command to view the contents of the protected file
+    stamps time everytime access_file is entered in access_log.txt
+file_lookup.sh
+    -> looking for file exisitng file in the same directory using find 
+    $(find . -name f -type $filename)
+    ->if found show the diectory using if condition 
+    if [ -n "$file_found" ]; then
+    echo "File found: $file_found"
+Scriptpass.sh
+    -> The Main File
+    Menu driven programm using if and switch case
+    Case options for adding and creating new file
+    Case options for searching the exisitng file in the directory
+    Calling of scripts into the main scripts using 
+        source ./auth_file.sh
+        source ./file_lookup.sh
+        case functins repeat the call incase the user wants to create a file after the file isnt found
+
+The authentication is done and the file is protected
